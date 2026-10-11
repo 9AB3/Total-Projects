@@ -47,13 +47,13 @@ $body = "A new quote request has been submitted through totalprojects.com.au\n\n
       . "Submitted: " . date('Y-m-d H:i:s T') . "\n";
 
 $headers = [
-    'From: Total Projects Website <website@totalprojects.com.au>',
+    'From: Total Projects Website <pat@totalprojects.com.au>',
     'Reply-To: ' . $email,
     'Content-Type: text/plain; charset=UTF-8',
     'X-Mailer: PHP/' . phpversion()
 ];
 
-$sent = @mail($to, $subject, $body, implode("\r\n", $headers));
+$sent = @mail($to, $subject, $body, implode("\r\n", $headers), '-fpat@totalprojects.com.au');
 
 if (!$sent) {
     http_response_code(500);
